@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技术支持 — 万亿</title>
+<style>
+  :root{--ink:#0E3B36;--gold:#B8873F;--text:#1c1b18;--muted:#6b7280;--line:#e7e3d8;--paper:#F7F4EC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;color:var(--text);line-height:1.8;background:#fff;}
+  header{background:var(--ink);color:#fff;padding:40px 20px;text-align:center;}
+  header h1{font-size:26px;letter-spacing:3px;}
+  header p{opacity:.8;font-size:13px;margin-top:6px;}
+  nav{background:var(--paper);border-bottom:1px solid var(--line);padding:12px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;position:sticky;top:0;}
+  nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;padding:6px 16px;border-radius:999px;}
+  nav a.active{background:var(--ink);color:#fff;}
+  main{max-width:760px;margin:0 auto;padding:40px 20px 60px;}
+  h2{font-size:19px;color:var(--ink);margin:30px 0 10px;}
+  details{border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:10px 0;background:#fff;}
+  summary{font-weight:700;cursor:pointer;font-size:15px;color:var(--text);}
+  details p,details li{font-size:14px;color:#374151;margin-top:8px;}
+  ol,ul{padding-left:22px;}
+  .contact{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center;margin-top:30px;}
+  .contact b{color:var(--ink);}
+  .note{font-size:12px;color:var(--muted);text-align:center;margin-top:30px;}
+</style>
+</head>
+<body>
+<header><h1>技术支持</h1><p>万亿 · 常见问题与反馈渠道</p></header>
+<nav>
+  <a href="index.html">首页</a>
+  <a href="privacy.html">隐私政策</a>
+  <a href="terms.html">使用条款</a>
+  <a class="active" href="support.html">技术支持</a>
+</nav>
+<main>
+  <h2>快速上手</h2>
+  <details open>
+    <summary>怎么记第一笔账？</summary>
+    <p>打开万亿，点右上角「+」：选支出 / 收入 → 输金额 → 点分类 →（可选）写备注 → 「记下这一笔」。全程三秒，数字键盘右上角有「完成」键收起键盘。</p>
+  </details>
+  <details>
+    <summary>怎么把微信 / 支付宝账单导进来？</summary>
+    <ol>
+      <li>微信：我 → 服务 → 钱包 → 账单 → 常见问题 → <b>下载账单（用于个人对账）</b>，账单会发到你的邮箱。</li>
+      <li>支付宝：我的 → 账单 → 右上角「…」→ <b>开具交易流水证明（用于个人对账）</b>。</li>
+      <li>在邮箱里打开附件，若为 zip 请用「文件」App 解压；对 CSV 文件选择「用其他应用打开 → 万亿」。</li>
+      <li>万亿本地解析后逐行预览，你点「确认入账」才会写入。</li>
+    </ol>
+    <p>注意：请导出「用于个人对账」的明细版本；「用于个人消费」的汇总版本没有逐笔明细，无法导入。</p>
+  </details>
+  <details>
+    <summary>导入时提示压缩包已加密？</summary>
+    <p>微信 / 支付宝的账单压缩包带密码（发送渠道里会告知）。iOS 自带「文件」App 支持解压：把 zip 存到「文件」，点一下输入密码，再导入解压出来的 CSV 文件。</p>
+  </details>
+  <details>
+    <summary>重复导入了怎么办？</summary>
+    <p>不会重复。万亿以微信「交易单号」/ 支付宝「交易订单号」做幂等去重，同一笔交易无论导入多少次都只入账一次；已退款 / 已关闭的交易会自动跳过并在预览里说明原因。</p>
+  </details>
+  <details>
+    <summary>删除的账目能找回吗？</summary>
+    <p>能。删除的账目进回收站保留 30 天（设置 → 数据 → 回收站），可随时恢复。超过 30 天的墓碑记录会在你打开回收站时自动清理。此外，导入与同步等危险操作前会自动生成本地快照（保留最近 7 份），可在「快照与回滚」中一键回退。</p>
+  </details>
+  <details>
+    <summary>换手机了数据怎么办？</summary>
+    <ul>
+      <li>免费方式：旧手机「设置 → 数据 → 导出 CSV」，新手机导入该 CSV（通用格式，每行一笔）。</li>
+      <li>Pro 方式：两台设备登录同一 Apple ID 并开启 iCloud 同步，点「立即同步」。</li>
+    </ul>
+  </details>
+  <details>
+    <summary>预算提醒没有弹出来？</summary>
+    <p>万亿不会在启动时申请通知权限。请到「设置 → 提醒」打开「每日记账提醒」（此时系统会申请权限）；预算预警在用量达到 80% 或超支时触发，每个阈值每月只提醒一次，若当天已提醒过不再重复。</p>
+  </details>
+  <details>
+    <summary>「自动捕获」是怎么工作的？能自动读我的短信吗？</summary>
+    <p><b>不能读短信，也不读其他 App 的通知</b>——iOS 不向第三方 App 提供这两种能力，任何号称能做的 App 都是在绕权限，我们不这么做。万亿的做法是「你转发、我解析」：用系统「快捷指令」建一个自动化（收到某家银行的短信时运行），把短信内容通过 <b>wanyi://capture</b> 交给万亿；或者复制账单文本后直接打开万亿（默认会自动检测剪贴板，且只在剪贴板内容变化时才读取一次，可在设置里改成仅待入账页或关闭），也可以手动粘贴文本。解析出金额、商户、时间后原文立即丢弃，待入账列表里点「入账」即完成记账。</p>
+  </details>
+  <details>
+    <summary>待入账通知会泄露我的消费金额吗？</summary>
+    <p>默认不会。锁屏通知只显示「有一笔账目待入账」，金额与商户只在打开 App 后可见；如果你希望通知直接带金额，可在「设置 → 自动记账 → 通知里显示金额与商户」打开。通知上还有「一键入账」「忽略」两个按钮，不用打开 App 就能处理。</p>
+  </details>
+  <details>
+    <summary>自动分类错了怎么办？同一商户会一直错吗？</summary>
+    <p>不会。入账前点待入账列表里的分类图标就能改；改过一次后，万亿会记住「这个商户 → 你选的分类」，下次同一商户自动用你的选择。分类规则完全在本地运行，你也可以在规则库里增删关键词。</p>
+  </details>
+  <details>
+    <summary>同一笔消费会不会被提醒两次 / 记两次？</summary>
+    <p>同一笔交易的多条通知（银行短信 + 支付 App 推送）只会入列一次：万亿按「方向 + 金额 + 商户 + 时间（精确到分钟）+ 卡尾号」生成去重键，已入账或已忽略的键 30 天内不再提醒；短信里没写时间时，10 分钟内同商户同金额也会判为重复。已忽略的交易永远不会再弹。</p>
+  </details>
+  <details>
+    <summary>周期自动入账是什么？会不会重复记账？</summary>
+    <p>房租、房贷、会员订阅、工资这类固定收支，在「设置 → 周期与查找 → 周期自动入账」里设一次规则（金额、分类、频率、起始日），到期那天打开 App 就会自动入账，不用每月手记。重复记账这件事我们用「一期一键」来防：每一期对应唯一编号，同一期无论你重复打开多少次、换月份补跑、甚至系统时间变化，都只会记一次；已经删掉的那一期也不会被自动"复活"。如果起始日设在过去，保存时会一次性补齐到今天的历史期次。每月 31 号这类日期在 2 月会自动落到当月最后一天。</p>
+  </details>
+  <details>
+    <summary>账目多了怎么快速找某一笔？</summary>
+    <p>首页右上角放大镜（或「设置 → 搜索与筛选」）打开搜索：可以直接搜备注或分类名（比如搜「餐饮」命中所有餐饮分类的账），再叠加收支方向、分类多选、金额区间、时间范围（本月 / 近 30 天 / 今年 / 自定义）自由组合。结果页顶部先给合计——共几笔、支出多少、收入多少、净额多少——再看逐日明细，对账时先看数字再看流水。</p>
+  </details>
+  <details>
+    <summary>有哪些更快的记账方式？</summary>
+    <p>四种，都在「设置 → 快捷录入与查找 → 常用与快捷方式」里：<br>
+    ① <b>常用模板</b>：早餐 15、咖啡 30 设一次，首页点一下就入账；<br>
+    ② <b>桌面小组件按钮</b>：把万亿小组件加到桌面，点模板按钮直接记账，不用打开 App；<br>
+    ③ <b>Siri 与快捷指令</b>：说「嘿 Siri，用万亿记一笔 35 元餐饮」；也能放进「快捷指令」的自动化、锁屏或控制中心（设备锁定时会先要求解锁，不绕过你的锁）；<br>
+    ④ <b>批量粘贴</b>：待入账收件箱里一次粘贴多行流水，逐条识别后批量入账——每一笔都要你确认，我们绝不猜数字。</p>
+  </details>
+  <details>
+    <summary>App 里有帮助吗？找不到某个功能怎么用</summary>
+    <p>有。首页右上角「?」或「设置 → 帮助」打开帮助中心：功能介绍、分步骤指引（具体到点哪个按钮）与常见问题，支持关键词搜索；每个界面的空状态或关键位置还有就地提示，点「查看指引」直接跳到对应条目。首次启动也会有四页新手引导。</p>
+  </details>
+  <details>
+    <summary>买了万亿 Pro，换机后怎么恢复？</summary>
+    <p>在新设备上打开「万亿 Pro」页面或「设置 → 万亿 Pro → 恢复购买」，使用同一 Apple ID 即可免费恢复。购买与退款均由 Apple 处理；退款申请路径：设置 → Apple 账户 → 媒体与购买项目 → 报告问题。退款后权益保留 7 天再回收。</p>
+  </details>
+  <details>
+    <summary>iCloud 同步显示不可用？</summary>
+    <p>请确认：设备已登录 iCloud 且开启 iCloud 云盘；iOS 设置 → Apple 账户 → iCloud → 「使用 iCloud 的 App」中允许万亿。同步失败不影响本地记账，数据始终先落本机。</p>
+  </details>
+
+  <h2>联系我们</h2>
+  <div class="contact">
+    <p>功能建议 / 问题反馈：<b>miclshui@gmail.com</b></p>
+    <p style="margin-top:6px;font-size:13px;color:var(--muted);">反馈时请说明 iOS 版本与操作步骤；<b>请勿在邮件中附带账单文件或账目截图</b>，万亿的工程师也不需要它们来定位问题。</p>
+  </div>
+  <p class="note">本方案为产品设计参考，具体实施请结合公司合规与法务要求确认。</p>
+</main>
+</body>
+</html>

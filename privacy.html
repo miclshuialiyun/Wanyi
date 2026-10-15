@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隐私政策 — 万亿</title>
+<style>
+  :root{--ink:#0E3B36;--gold:#B8873F;--text:#1c1b18;--muted:#6b7280;--line:#e7e3d8;--paper:#F7F4EC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;color:var(--text);line-height:1.85;background:#fff;}
+  header{background:var(--ink);color:#fff;padding:40px 20px;text-align:center;}
+  header h1{font-size:26px;letter-spacing:3px;}
+  header p{opacity:.8;font-size:13px;margin-top:6px;}
+  nav{background:var(--paper);border-bottom:1px solid var(--line);padding:12px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;position:sticky;top:0;}
+  nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;padding:6px 16px;border-radius:999px;}
+  nav a.active{background:var(--ink);color:#fff;}
+  main{max-width:760px;margin:0 auto;padding:40px 20px 60px;}
+  h2{font-size:19px;color:var(--ink);margin:30px 0 10px;}
+  p,li{font-size:14.5px;color:#374151;}
+  ul{padding-left:22px;margin:8px 0;}
+  .highlight{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:16px 0;}
+  .update{font-size:13px;color:var(--muted);text-align:center;margin-top:40px;}
+</style>
+</head>
+<body>
+<header><h1>隐私政策</h1><p>万亿 · 最后更新：2026-10-14</p></header>
+<nav>
+  <a href="index.html">首页</a>
+  <a class="active" href="privacy.html">隐私政策</a>
+  <a href="terms.html">使用条款</a>
+  <a href="support.html">技术支持</a>
+</nav>
+<main>
+  <div class="highlight">
+    <p><b>一句话版本：</b>万亿不收集你的任何财务数据。账目只存在你的设备与你自己 iCloud 私人数据库中，我们没有服务器，无法读取你的任何一笔账。</p>
+  </div>
+
+  <h2>一、我们收集什么</h2>
+  <p>答案尽可能短：<b>财务数据：不收集。个人身份信息：不收集。位置：不收集。广告标识符：不使用。</b></p>
+  <p>万亿不包含任何第三方统计、广告、崩溃上报 SDK，因此不存在向第三方传输数据的通道。App Store Connect 会向开发者提供匿名的下载量、崩溃率与销售数据，其中不含任何账目内容或个人身份信息。</p>
+
+  <h2>二、你的账目数据存在哪里</h2>
+  <ul>
+    <li><b>本机存储：</b>账目数据保存在设备的 App 沙盒目录中。删除 App 即删除数据（建议先导出 CSV）。</li>
+    <li><b>iCloud 同步（可选，Pro 功能）：</b>开启后，数据通过 CloudKit 存入<b>你自己的 iCloud 私人数据库</b>。该数据库由 Apple 加密并以你的 Apple ID 保护，开发者没有任何技术途径访问其内容。</li>
+    <li><b>桌面小组件：</b>通过 iOS 的 App Group 机制读取本机账目摘要，不产生网络请求。</li>
+  </ul>
+
+  <h2>三、账单导入如何处理文件</h2>
+  <ul>
+    <li>你主动导入的微信 / 支付宝账单文件，解析全程在设备内存中完成。</li>
+    <li>文件不会被复制、不会被保存、不会被上传；你从文件提供方（微信 / 支付宝 / 邮箱）获取的原始文件仍由你自行管理。</li>
+    <li>解析结果在确认前仅存在于内存预览中；你确认后写入本机账本，未确认的解析结果即被丢弃。</li>
+    <li>万亿与微信、支付宝没有任何关联，也不代表其提供解析服务；导入功能仅处理你本人导出的本人账单。</li>
+  </ul>
+
+  <h2>四、权限的使用</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:14px;">
+    <tr style="background:var(--paper);"><th style="padding:8px;border:1px solid var(--line);">权限</th><th style="padding:8px;border:1px solid var(--line);">何时申请</th><th style="padding:8px;border:1px solid var(--line);">用途</th></tr>
+    <tr><td style="padding:8px;border:1px solid var(--line);">通知</td><td style="padding:8px;border:1px solid var(--line);">你打开「记账提醒」或「自动捕获」开关时</td><td style="padding:8px;border:1px solid var(--line);">每日提醒、预算超支预警与待入账提醒（默认不含金额与商户，可在设置中开启显示）</td></tr>
+    <tr><td style="padding:8px;border:1px solid var(--line);">面容 ID / 触控 ID</td><td style="padding:8px;border:1px solid var(--line);">你打开「账本锁」开关时</td><td style="padding:8px;border:1px solid var(--line);">回前台时本地验证，数据不出设备</td></tr>
+    <tr><td style="padding:8px;border:1px solid var(--line);">iCloud</td><td style="padding:8px;border:1px solid var(--line);">你手动点「立即同步」时</td><td style="padding:8px;border:1px solid var(--line);">读写你自己的 iCloud 私人数据库</td></tr>
+    <tr><td style="padding:8px;border:1px solid var(--line);">剪贴板</td><td style="padding:8px;border:1px solid var(--line);">你复制账单文本后打开 App（或点「读取剪贴板」）时</td><td style="padding:8px;border:1px solid var(--line);">读取你复制的短信 / 通知文本用于本地解析；仅在剪贴板内容变化时才读取一次，首次读取系统可能弹窗征求同意，可随时在设置中关闭自动检测</td></tr>
+  </table>
+  <p style="margin-top:8px;">万亿不会在启动时申请任何权限；拒绝任何权限均不影响记账核心功能。<b>万亿没有、也不需要「读取短信」或「读取其他应用通知」的权限</b>——iOS 不向第三方 App 提供这类能力，「消费自动捕获」只处理你通过系统快捷指令、剪贴板或手动粘贴主动交给它的文本。</p>
+  <p style="margin-top:8px;"><b>关于自动捕获的文本：</b>原文解析出金额、商户、时间、卡尾号后立即丢弃，本地只保留这几个字段；解析失败的文本不留存。待入账队列与去重记录存在设备本地，<b>不进 iCloud、不上传</b>，可随时在设置里一键清除。</p>
+
+  <h2>五、日志与诊断</h2>
+  <p>应用日志只记录条数与结果（例如「导入成功 N 笔」），<b>绝不包含金额、备注、交易对手等账目内容</b>。诊断信息由你在设置页主动导出，万亿不做任何后台上传。</p>
+
+  <h2>六、你的权利</h2>
+  <ul>
+    <li><b>导出：</b>设置 → 数据 → 导出 CSV（永久免费）。</li>
+    <li><b>删除：</b>删除 App 即删除本机数据；已同步至 iCloud 的数据可在 iOS「设置 → Apple 账户 → iCloud → 管理储存空间」中删除。</li>
+    <li><b>撤回同意：</b>关闭 iCloud 同步、通知、面容 ID 开关即时生效。</li>
+  </ul>
+
+  <h2>七、未成年人</h2>
+  <p>万亿面向普通用户，不针对未成年人设计诱导性功能；应用内购买受 Apple ID 密码 / 家长控制保护。</p>
+
+  <h2>八、政策变更</h2>
+  <p>若隐私政策发生重大变更，将通过应用内公告与本页更新告知。变更不会追溯改变「不收集财务数据」这一核心承诺。</p>
+
+  <h2>九、联系我</h2>
+  <p>如有任何隐私疑问：miclshui@gmail.com。</p>
+
+  <p class="update">本政策自 2026-10-14 起适用。本方案为产品设计参考，具体实施请结合公司合规与法务要求确认。</p>
+</main>
+</body>
+</html>

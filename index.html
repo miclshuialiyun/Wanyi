@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万亿 — 越记越有余 · iOS 极简记账</title>
+<style>
+  :root{
+    --ink:#0E3B36;
+    --ink-deep:#072622;
+    --gold:#B8873F;
+    --gold-light:#D9A94C;
+    --text:#1c1b18;
+    --muted:#6b7280;
+    --line:#e7e3d8;
+    --paper:#F7F4EC;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    color:var(--text);line-height:1.75;background:var(--card);-webkit-font-smoothing:antialiased;
+  }
+  header{
+    background:linear-gradient(165deg,#134A43 0%,var(--ink) 48%,var(--ink-deep) 100%);
+    color:#fff;padding:64px 20px 56px;text-align:center;
+  }
+  header .coin{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:64px;height:64px;border-radius:50%;
+    border:3px solid var(--gold-light);color:var(--gold-light);
+    font-size:26px;font-weight:800;margin-bottom:18px;
+  }
+  header h1{font-size:40px;letter-spacing:6px;font-weight:900;}
+  header p.tag{margin-top:12px;font-size:18px;opacity:.94;}
+  header p.sub{margin-top:6px;font-size:14px;opacity:.72;}
+  header .badges{margin-top:26px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+  header .badge{
+    border:1px solid rgba(255,255,255,.35);border-radius:999px;
+    padding:6px 16px;font-size:13px;opacity:.95;
+  }
+  nav{
+    background:var(--paper);border-bottom:1px solid var(--line);
+    padding:12px 20px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;
+    position:sticky;top:0;z-index:10;
+  }
+  nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;padding:6px 16px;border-radius:999px;border:1px solid transparent;}
+  nav a:hover{background:#fff;border-color:var(--line);}
+  nav a.active{background:var(--ink);color:#fff;}
+  main{max-width:920px;margin:0 auto;padding:48px 20px 60px;}
+  section{margin-bottom:52px;}
+  h2{font-size:24px;margin:0 0 8px;color:var(--ink-deep);text-align:center;}
+  .lead{text-align:center;color:var(--muted);max-width:620px;margin:0 auto 30px;font-size:15px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;}
+  .card .ico{font-size:15px;color:var(--gold);font-weight:800;letter-spacing:1px;}
+  .card h3{font-size:17px;margin:8px 0 6px;color:var(--ink-deep);}
+  .card p{font-size:14px;color:#4b5563;}
+  .promises{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;}
+  .promise{border:1px solid var(--line);border-radius:16px;padding:22px;text-align:center;background:#fff;}
+  .promise .num{display:inline-flex;width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--gold-light);align-items:center;justify-content:center;font-weight:800;margin-bottom:10px;}
+  .promise h3{font-size:16px;color:var(--ink-deep);margin-bottom:6px;}
+  .promise p{font-size:13px;color:#4b5563;}
+  .steps{counter-reset:step;max-width:640px;margin:0 auto;}
+  .step{display:flex;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line);}
+  .step:last-child{border-bottom:none;}
+  .step .no{flex:none;width:28px;height:28px;border-radius:50%;background:var(--gold);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px;}
+  .step p{font-size:14px;color:#374151;}
+  .steps h3{font-size:16px;color:var(--ink-deep);margin:26px 0 4px;text-align:center;}
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;}
+  th{background:var(--paper);color:var(--ink-deep);}
+  footer{
+    border-top:1px solid var(--line);background:var(--paper);
+    padding:28px 20px;text-align:center;font-size:13px;color:var(--muted);
+  }
+  footer a{color:var(--ink);text-decoration:none;margin:0 10px;}
+  .cta{
+    text-align:center;background:var(--ink);color:#fff;border-radius:20px;
+    padding:40px 20px;margin-top:10px;
+  }
+  .cta h2{color:#fff;}
+  .cta p{opacity:.85;font-size:14px;margin-top:8px;}
+  .cta .note{opacity:.6;font-size:12px;margin-top:14px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="coin">萬</div>
+  <h1>万亿</h1>
+  <p class="tag">越记越有余</p>
+  <p class="sub">iOS 极简记账 · 本地优先 · 无广告 · 无订阅</p>
+  <div class="badges">
+    <span class="badge">账单本地解析</span>
+    <span class="badge">零 SDK 零埋点</span>
+    <span class="badge">微信 / 支付宝账单一键入账</span>
+    <span class="badge">小组件点一下就记好</span>
+    <span class="badge">一次性买断</span>
+  </div>
+</header>
+
+<nav>
+  <a class="active" href="index.html">首页</a>
+  <a href="privacy.html">隐私政策</a>
+  <a href="terms.html">使用条款</a>
+  <a href="support.html">技术支持</a>
+</nav>
+
+<main>
+  <section>
+    <h2>为什么是万亿</h2>
+    <p class="lead">市面上的记账 App 越来越重：开屏广告、会员弹窗、社交、直播。万亿把一切砍掉，只留下「把钱记清楚」这一件事。</p>
+    <div class="grid">
+      <div class="card"><div class="ico">01</div><h3>记一笔只要三秒</h3><p>打开就是记账入口，金额、分类、备注一屏完成。数字键盘自带收起，不卡在输入法里。</p></div>
+      <div class="card"><div class="ico">02</div><h3>账单自动入账</h3><p>导出微信 / 支付宝官方账单，万亿在手机本地解析、自动分类、按单号去重。全程不联网。</p></div>
+      <div class="card"><div class="ico">05</div><h3>消费自动捕获</h3><p>用系统「快捷指令」把银行短信转发给万亿，金额、商户、时间自动填好，锁屏点一下就能入账。原文解析完即丢。</p></div>
+      <div class="card"><div class="ico">06</div><h3>周期账自动入账</h3><p>房租、房贷、订阅、工资设一次规则，到期自动入账。同一期只记一次，跨月补跑也不重复；31 号在 2 月自动落到月末。</p></div>
+      <div class="card"><div class="ico">07</div><h3>搜索与筛选</h3><p>按备注或分类名搜，再叠加方向、分类、金额区间、时间区间自由组合；先给合计再给明细，对账先看数字。</p></div>
+      <div class="card"><div class="ico">08</div><h3>常用一键记</h3><p>早餐 15、咖啡 30 设成常用模板，桌面小组件上直接点，不用打开 App；也能对 Siri 说「用万亿记一笔」。</p></div>
+      <div class="card"><div class="ico">09</div><h3>批量粘贴</h3><p>一次粘贴多行流水（早餐 15 / 咖啡 30），逐条识别后批量入账。补一周的账，一分钟搞定。</p></div>
+      <div class="card"><div class="ico">10</div><h3>一键搬家</h3><p>从别的记账 App 导出 CSV 导入万亿：自动猜列、确认修正、记住映射；没有单号也能去重。</p></div>
+      <div class="card"><div class="ico">11</div><h3>内置帮助中心</h3><p>分步操作指引 + 常见问题 + 关键词搜索；每个界面还有就地提示，点一下直达对应指引。</p></div>
+      <div class="card"><div class="ico">12</div><h3>亲情卡分得清</h3><p>多张亲情卡 / 副卡按卡尾号自动匹配，分清「谁付的、为谁花的、要不要还」。代付进待偿还，还清自动生成冲抵流水，且不计入收支统计。</p></div>
+      <div class="card"><div class="ico">13</div><h3>剪贴板自动识别</h3><p>复制一段账单文本，打开万亿就自动出现在待入账；只在剪贴板真的变过时才读一次，不会反复弹系统提示。同一段只识别一次，认不出就安静跳过。入账点错了？15 秒内一键撤销。</p></div>
+      <div class="card"><div class="ico">03</div><h3>预算与预警</h3><p>月度预算进度常驻首页与桌面小组件；用到 80% 与超支时本机提醒，每个阈值每月只打扰一次。</p></div>
+      <div class="card"><div class="ico">04</div><h3>场景账本</h3><p>旅行、装修、养宠各有专属科目与周期预算。生活一本账，大事件另起一本。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>四条隐私承诺</h2>
+    <p class="lead">不是「隐私协议里的小字」，而是产品架构本身。</p>
+    <div class="promises">
+      <div class="promise"><span class="num">一</span><h3>数据只在你手机上</h3><p>账目保存在本机与你自己的 iCloud 私人数据库，万亿没有服务器。</p></div>
+      <div class="promise"><span class="num">二</span><h3>账单本地解析</h3><p>导入的账单文件不复制、不留存、不上传，解析完即弃。</p></div>
+      <div class="promise"><span class="num">三</span><h3>零 SDK 零埋点</h3><p>没有任何第三方统计、广告或追踪组件。</p></div>
+      <div class="promise"><span class="num">四</span><h3>随时带走</h3><p>一键导出 CSV，一键删除全部数据，不需要问任何人。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>三步导入微信 / 支付宝账单</h2>
+    <div class="steps">
+      <div class="step"><span class="no">1</span><p><b>微信</b>：我 → 服务 → 钱包 → 账单 → 常见问题 → 下载账单（用于个人对账）。</p></div>
+      <div class="step"><span class="no">2</span><p><b>支付宝</b>：我的 → 账单 → 右上角「…」→ 开具交易流水证明（用于个人对账）。</p></div>
+      <div class="step"><span class="no">3</span><p>收到邮件后，把 CSV 文件用「用其他应用打开」交给万亿；有密码的压缩包先用「文件」App 解压。万亿预览每一笔后，由你确认才入账。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>付费方式</h2>
+    <p class="lead">基础记账、图表、预算、CSV 导出永久免费。</p>
+    <table>
+      <tr><th></th><th>免费版</th><th>万亿 Pro</th></tr>
+      <tr><td>手动记账与分类</td><td>不限量</td><td>不限量</td></tr>
+      <tr><td>消费自动捕获（待入账收件箱）</td><td>✓</td><td>✓</td></tr>
+      <tr><td>亲情卡 / 代付管理与待偿还</td><td>✓</td><td>✓</td></tr>
+      <tr><td>周期自动入账与搜索筛选</td><td>✓</td><td>✓</td></tr>
+      <tr><td>常用一键记（首页 / 小组件 / Siri）与批量粘贴</td><td>✓</td><td>✓</td></tr>
+      <tr><td>月度图表与预算提醒</td><td>✓</td><td>✓</td></tr>
+      <tr><td>CSV 导出</td><td>✓（永久免费）</td><td>✓</td></tr>
+      <tr><td>多账本与场景模板</td><td>—</td><td>✓</td></tr>
+      <tr><td>iCloud 同步</td><td>—</td><td>✓</td></tr>
+      <tr><td>付费方式</td><td>—</td><td>一次性买断，无订阅无自动续费</td></tr>
+    </table>
+  </section>
+
+  <div class="cta">
+    <h2>从今天这一笔开始</h2>
+    <p>在 App Store 搜索「万亿 · 极简记账」。</p>
+    <p class="note">本方案为产品设计参考，具体实施请结合公司合规与法务要求确认。</p>
+  </div>
+</main>
+
+<footer>
+  <p>
+    <a href="privacy.html">隐私政策</a>·
+    <a href="terms.html">使用条款</a>·
+    <a href="support.html">技术支持</a>
+  </p>
+  <p style="margin-top:8px;">联系邮箱：miclshui@gmail.com</p>
+  <p style="margin-top:4px;">© 2026 万亿 · 备案号待回填</p>
+</footer>
+</body>
+</html>
